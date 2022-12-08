@@ -1,0 +1,27 @@
+@startuml
+
+
+class Character
+class Wizard extends Character
+class Warrior extends Character
+
+class Team
+
+class Place
+class Dungeon extends Place
+class Inn extends Place
+
+class Monster
+class Troll extends Monster
+class Goblin extends Monster
+
+Inn "0..1" --> "*" Team: -clients
+Team "*" --> "*" Character: -characters
+
+Dungeon "0..1" --> "*" Monster: -inhabitants
+Dungeon "0..1" --> "*" Character: -explorers
+
+Character -[hidden]> Team
+
+
+@enduml

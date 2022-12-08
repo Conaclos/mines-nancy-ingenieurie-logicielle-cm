@@ -1,0 +1,17 @@
+@startuml
+interface Listener {
+    + changed (Observable obs)
+}
+class CounterListener implements Listener {
+    + changed (Observable obs)
+}
+class Counter {
+    - int value
+    + int getValue ()
+    + increment ()
+    + addListener (Listener listener)
+    + removeListener (Listener listener)
+}
+Counter -[hidden]> Listener
+Counter "0..*" o-- "0..*" Listener : - listeners
+@enduml

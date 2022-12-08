@@ -1,0 +1,12 @@
+@startuml
+interface Listener {
+    + changed (Observable obs)
+}
+class Observable {
+    + addListener (Listener listener)
+    + removeListener (Listener listener)
+    # notifyListeners ()
+}
+Observable -[hidden]> Listener
+Observable "0..*" o-- "0..*" Listener : - listeners
+@enduml
